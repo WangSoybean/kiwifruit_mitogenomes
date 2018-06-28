@@ -1,2 +1,5 @@
 
 mafft
+Gblock
+jModelTest
+raxml
