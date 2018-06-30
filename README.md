@@ -1,1 +1,1 @@
-# kiwifruit-mitogenomes
+# kiwifruit_mitogenomes
