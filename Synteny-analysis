@@ -4,3 +4,11 @@ cat ten.xmfa.backbone | sed '1d' | sed 's/-//g' | sort -k 19 -n | awk '{if($20<7
 cat ten.xmfa.backbone | sed '1d' | sed 's/-//g' | awk '{if($15==0 && $16==0){print }}' | awk '{m1RZ+=$2-$1;m2RZ+=$4-$3;m3RZ+=$6-$5;m4RZ+=$8-$7;m5RZ+=$10-$9;m6RZ+=$12-$11;m7RZ+=$14-$13;m8RZ+=$16-$15;m9RZ+=$18-$17;m10RZ+=$20-$19}END{print m1RZ,m2RZ,m3RZ,m4RZ,m5RZ,m6RZ,m7RZ,m8RZ,m9RZ,m10RZ}'
 cat ten.xmfa.backbone | sed '1d' | sed 's/-//g' | awk '{if($17==0 && $18==0){print }}' | awk '{m1MH+=$2-$1;m2MH+=$4-$3;m3MH+=$6-$5;m4MH+=$8-$7;m5MH+=$10-$9;m6MH+=$12-$11;m7MH+=$14-$13;m8MH+=$16-$15;m9MH+=$18-$17;m10MH+=$20-$19}END{print m1MH,m2MH,m3MH,m4MH,m5MH,m6MH,m7MH,m8MH,m9MH,m10MH}'
 cat ten.xmfa.backbone | sed '1d' | sed 's/-//g' | awk '{if($19==0 && $20==0){print }}' | awk '{m1DH+=$2-$1;m2DH+=$4-$3;m3DH+=$6-$5;m4DH+=$8-$7;m5DH+=$10-$9;m6DH+=$12-$11;m7DH+=$14-$13;m8DH+=$16-$15;m9DH+=$18-$17;m10DH+=$20-$19}END{print m1DH,m2DH,m3DH,m4DH,m5DH,m6DH,m7DH,m8DH,m9DH,m10DH}'
+#nucmer
+ref=RZ_scaffold1.fa
+qry=mhmt.fasta
+#blocks
+nucmer $ref $qry
+delta-filter -q -r out.delta > out.delta.filter
+mummerplot --postscript out.delta.filter
+
